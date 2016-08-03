@@ -16,7 +16,7 @@ function onCircleStart(e) {
     $(circle).attr("r", 0);
     $(circle).attr("stroke", border.color);
     $(circle).attr("stroke-width", border.width);
-    $(circle).attr("fill", fillColor);
+    $(circle).attr("fill", color.second);
 
     $("#svgDrawing").on("mouseup", onCircleEnd);
     $("#svgDrawing").on("mousemove", { circle: circle }, function (e) {

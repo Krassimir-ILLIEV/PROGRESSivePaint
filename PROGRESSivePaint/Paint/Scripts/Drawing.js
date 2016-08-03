@@ -4,13 +4,15 @@
         x: 0,
         y: 0
     };
+    var color = {
+        first: "#000",
+        second: "transparent"
+    }
     var border = {
-        color: "#000",
+        color: color.first,
         width: "1",
         style: "solid"
     };
-    var fillColor = "transparent";
-
 // #endregion
 
 
