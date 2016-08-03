@@ -40,6 +40,7 @@
     <Content Include="Scripts\MainScript.js" />
     <Content Include="Scripts\Shapes\DrawCircle.js" />
     <Content Include="Scripts\Shapes\DrawEllipse.js" />
+    <Content Include="Scripts\Shapes\DrawLine.js" />
     <Content Include="styles.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

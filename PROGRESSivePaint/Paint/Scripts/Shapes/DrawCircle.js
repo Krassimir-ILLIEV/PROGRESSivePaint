@@ -22,7 +22,6 @@ function onCircleStart(e) {
     $("#svgDrawing").on("mousemove", { circle: circle }, function (e) {
         updateCircleRadius(e);
     });
-
 }
 
 function updateCircleRadius(e) {
