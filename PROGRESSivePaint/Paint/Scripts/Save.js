@@ -1,13 +1,9 @@
 
-function listener() {
-    console.log('first');
-    $("#svgDrawing").off();
-    $("#svgDrawing").on("click", startSave);
-}
+
 
 function addSaveListener()
 {
-  console.log('second');
+
     var c = document.getElementById("playground");
     if (c.getContext) {
        var ctx = c.getContext("2d");
