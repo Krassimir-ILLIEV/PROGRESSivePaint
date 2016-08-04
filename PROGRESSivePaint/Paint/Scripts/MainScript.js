@@ -15,4 +15,6 @@ function addButtonsEvents() {
     $("#circle").on("click", addCircleListener);
     $("#ellipse").on("click", addEllipseListener);
     $("#line").on("click", addLineListener);
+    $("#brush").on("click", addBrushListener);
+
 }
