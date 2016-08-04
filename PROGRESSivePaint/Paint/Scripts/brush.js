@@ -1,16 +1,13 @@
-function addBrushListener() {
-    $("#svgDrawing").off();
-    $("#svgDrawing").on("mousedown", startBrush);
-}
+
 
     var enableDraw = false;
         started = false;
     var canvas,
       context;
 
-function startBrush(e) {
-
-    var line = addSvgTag("brush");
+function addBrushListener(e) {
+    $("#svgDrawing").off();
+    var brush = addSvgTag("brush");
 
     $("#svgDrawing").on("mousemove", function (e) {
         onMouseMove(e);
