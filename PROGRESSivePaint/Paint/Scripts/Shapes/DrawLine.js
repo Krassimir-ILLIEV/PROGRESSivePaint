@@ -26,7 +26,7 @@ function onLineStart(e) {
 }
 
 function updateLineLength(e) {
-  console.log('move');
+  
     var svgCoords = $("#svgDrawing").offset();
 
     var line = e.data.line;
