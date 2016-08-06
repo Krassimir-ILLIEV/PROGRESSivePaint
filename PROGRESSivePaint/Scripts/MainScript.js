@@ -22,5 +22,6 @@ function addButtonsEvents() {
     $("#line").on("click", addLineListener);
     $("#brush").on("click", addBrushListener);
     $("#save").on("click", addSaveListener);
+    $("#rect").on("click", addRectangleListener);
 
 }
