@@ -9,9 +9,8 @@ function addBrushListener(e) {
     $("#svgDrawing").off();
     var brush = addSvgTag("brush");
 
-    $("#svgDrawing").on("mousemove", function (e) {
-        onMouseMove(e);
-    });
+    $("#svgDrawing").on("mousemove", onMouseMove);
+
     /*$("#svgDrawing").on('click', function (e) {
         onClick(e);
     });*/
@@ -32,14 +31,16 @@ function onMouseMove(ev) {
     var context = c.getContext("2d");
     var x, y;
 
-    if (ev.layerX >= 0) {
+    /*if (ev.layerX >= 0) {
         x = ev.layerX - 50;
         y = ev.layerY - 5;
     }
     else if (ev.offsetX >= 0) {
         x = ev.offsetX - 50;
         y = ev.offsetY - 5;
-    }
+    }*/
+    x = ev.clientX - $(c).offset().left;
+    y = ev.clientY - $(c).offset().top;
 
 
     if (enableDraw) {
