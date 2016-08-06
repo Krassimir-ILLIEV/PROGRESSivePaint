@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="Scripts\Animation.js" />
     <Content Include="Scripts\brush.js" />
     <Content Include="Scripts\color.js" />
     <Content Include="Scripts\Drawing.js" />
