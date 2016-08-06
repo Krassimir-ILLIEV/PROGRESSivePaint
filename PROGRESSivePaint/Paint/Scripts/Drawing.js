@@ -25,7 +25,7 @@ function setStartCoords(e) {
 }
 
 function addSvgTag(tagName) {
-    var element = document.createElementNS("http://www.w3.org/2000/svg", tagName);;
+    var element = document.createElementNS("http://www.w3.org/2000/svg", tagName);
 
     $("#svgDrawing").html(element);
 

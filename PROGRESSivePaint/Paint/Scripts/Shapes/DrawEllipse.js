@@ -48,6 +48,7 @@ function onEllipseEnd() {
 
     ctx.beginPath();
     ctx.ellipse(coords.x, coords.y, radiusX, radiusY, 2 * Math.PI, 0, 2 * Math.PI);
+    ctx.strokeStyle = border.color;
     ctx.stroke();
 
     radiusX = 0;

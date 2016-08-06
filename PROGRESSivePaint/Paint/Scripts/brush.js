@@ -1,9 +1,9 @@
 
 
-    var enableDraw = false;
-        started = false;
-    var canvas,
-      context;
+var enableDraw = false;
+started = false;
+var canvas,
+    context;
 
 function addBrushListener(e) {
     $("#svgDrawing").off();
@@ -16,12 +16,12 @@ function addBrushListener(e) {
         onClick(e);
     });*/
 
-    $("#svgDrawing").on('mousedown', function (e){
-      enableDraw = true;
+    $("#svgDrawing").on('mousedown', function (e) {
+        enableDraw = true;
     });
-    $("#svgDrawing").on('mouseup', function (e){
-      enableDraw = false;
-      started = false;
+    $("#svgDrawing").on('mouseup', function (e) {
+        enableDraw = false;
+        started = false;
     });
 }
 
@@ -43,15 +43,16 @@ function onMouseMove(ev) {
 
 
     if (enableDraw) {
-      if (!started) {
-        started = true;
+        if (!started) {
+            started = true;
 
-        context.beginPath();
-        context.moveTo(x, y);
-      }
-      else {
-        context.lineTo(x, y);
-        context.stroke();
-      }
+            context.beginPath();
+            context.moveTo(x, y);
+        }
+        else {
+            context.lineTo(x, y);
+            context.strokeStyle = border.color;
+            context.stroke();
+        }
     }
 }

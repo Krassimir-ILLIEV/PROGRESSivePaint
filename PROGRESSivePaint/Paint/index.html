@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Paint</title>
@@ -12,8 +13,10 @@
     <script src="scripts/shapes/drawline.js"></script>
     <script src="scripts/Brush.js"></script>
     <script src="scripts/Save.js"></script>
+    <script src="scripts/color.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
+
 <body>
     <div id="paint">
         <div id="toolbar">
@@ -23,12 +26,26 @@
             <span id="brush" class="button">Brush</span>
             <span id="save" class="button">Save</span>
         </div>
+        <div id="colorToolbar">
+            <div id="black" class="colorbox"></div>
+            <div id="white" class="colorbox"></div>
+            <div id="grey" class="colorbox"></div>
+            <div id="darkRed" class="colorbox"></div>
+            <div id="red" class="colorbox"></div>
+            <div id="orange" class="colorbox"></div>
+            <div id="yellow" class="colorbox"></div>
+            <div id="green" class="colorbox"></div>
+            <div id="turquoise" class="colorbox"></div>
+            <div id="blue" class="colorbox"></div>
+            <div id="purple" class="colorbox"></div>           
+        </div>
         <div id="playgroundWraper">
             <svg id="svgDrawing"></svg>
             <canvas id="playground"></canvas>
-
         </div>
     </div>
 
+
 </body>
+
 </html>

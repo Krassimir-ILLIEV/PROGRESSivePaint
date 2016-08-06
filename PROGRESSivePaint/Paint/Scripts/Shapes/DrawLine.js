@@ -50,7 +50,9 @@ function onLineEnd() {
     ctx.beginPath();
     ctx.moveTo(coords.x, coords.y);
     ctx.lineTo(xEnd, yEnd);
+    ctx.strokeStyle = border.color;
     ctx.stroke();
+    
 
     xEnd = 0;
     yEnd = 0;

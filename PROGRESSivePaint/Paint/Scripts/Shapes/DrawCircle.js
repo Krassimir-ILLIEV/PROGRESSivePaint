@@ -45,6 +45,7 @@ function onCircleEnd() {
 
     ctx.beginPath();
     ctx.arc(coords.x, coords.y, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = border.color;
     ctx.stroke();
 
     radius = 0;

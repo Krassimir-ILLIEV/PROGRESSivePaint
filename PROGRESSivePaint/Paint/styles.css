@@ -69,3 +69,59 @@ body,
     height: 100%;
 }
 
+#colorToolbar{
+    position: absolute;
+    top: 50px;
+}
+
+.colorbox{
+    margin: 1px;
+    border: 1px solid black;
+    width:20px;
+    height:20px;
+    float: left;  
+}
+
+#black{
+    background:black; 
+}
+
+#white{
+    background:white; 
+}
+
+#grey{
+    background: grey; 
+}
+
+#darkRed{
+    background:darkred; 
+}
+
+#red{
+    background:red; 
+}
+
+#orange{
+    background: orange; 
+}
+
+#yellow{
+    background:yellow; 
+}
+
+#green{
+    background:green;  
+}
+
+#turquoise{
+    background:turquoise;
+}
+
+#blue{
+    background: blue;  
+}
+
+#purple{
+    background: purple;  
+}

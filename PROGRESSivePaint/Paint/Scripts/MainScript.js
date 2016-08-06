@@ -3,6 +3,7 @@
 function onload() {
     expandPalyground();
     addButtonsEvents();
+    addColorListeners();
 }
 
 function expandPalyground() {
