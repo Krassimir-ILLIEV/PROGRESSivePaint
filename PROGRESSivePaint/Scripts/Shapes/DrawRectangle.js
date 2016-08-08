@@ -1,5 +1,7 @@
 ﻿var rectWidth,
-    rectHeight;
+    rectHeight,
+    currentX,
+    currentY;
 
 function addRectangleListener() {
     $("#svgDrawing").off();
@@ -15,7 +17,7 @@ function onRectangleStart(e) {
     $(rect).attr("y", coords.y);
     $(rect).attr("width", 0);
     $(rect).attr("height", 0);
-    $(rect).attr("stroke", color.first);
+    $(rect).attr("stroke", border.color);
     $(rect).attr("fill", color.second);
     $(rect).attr("stroke-width", border.width);
 
@@ -30,28 +32,27 @@ function updateRectangleSize(e) {
     var svgCoords = $("#svgDrawing").offset();
 
     var rect = e.data.rect;
-    var currentX = e.clientX - svgCoords.left;
-    var currentY = e.clientY - svgCoords.top;
+    currentX = e.clientX - svgCoords.left;
+    currentY = e.clientY - svgCoords.top;
 
     rectWidth = Math.abs(currentX - coords.x);
     rectHeight = Math.abs(currentY - coords.y);
 
     if (currentX < coords.x && currentY < coords.y) {
-        rectWidth -= 2 * rectWidth;
-        rectHeight -= 2 * rectHeight;
+        /*
+        rectWidth = -rectWidth;
+        rectHeight = -rectHeight;
+*/
+        $(rect).attr("x", currentX);
+        $(rect).attr("y", currentY);
+        
     }
     else if (currentX < coords.x && currentY >= coords.y) {
-        rectWidth -= 2 * rectWidth;
+        $(rect).attr("x", currentX);
     }
     else if (currentX >= coords.x && currentY < coords.y) {
-        rectHeight -= 2 * rectHeight;
+        $(rect).attr("y", currentY);
     }
-
-    console.log("Height");
-    console.log(rectHeight);
-    console.log("Width");
-    console.log(rectWidth);
-
 
     $(rect).attr("width", rectWidth);
     $(rect).attr("height", rectHeight);
@@ -66,7 +67,19 @@ function onRectangleEnd() {
     $("#svgDrawing").html("");
 
     ctx.beginPath();
-    ctx.rect(coords.x, coords.y, rectWidth, rectHeight);
+   
+    if (currentX < coords.x && currentY < coords.y) {
+        ctx.rect(currentX, currentY, rectWidth, rectHeight);
+    }
+    else if (currentX < coords.x && currentY >= coords.y) {
+        ctx.rect(currentX, coords.y, rectWidth, rectHeight);
+    }
+    else if (currentX >= coords.x && currentY < coords.y) {
+        ctx.rect(coords.x, currentY, rectWidth, rectHeight);
+    }
+    else {
+        ctx.rect(coords.x, coords.y, rectWidth, rectHeight);
+    }
     ctx.strokeStyle = border.color;
     ctx.stroke();
 

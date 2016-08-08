@@ -68,6 +68,7 @@
     <Content Include="Scripts\Shapes\DrawEllipse.js" />
     <Content Include="Scripts\Shapes\DrawLine.js" />
     <Content Include="Scripts\Shapes\DrawRectangle.js" />
+    <Content Include="Scripts\Shapes\DrawSquare.js" />
     <Content Include="styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>

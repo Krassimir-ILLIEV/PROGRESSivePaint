@@ -1,5 +1,7 @@
 ﻿var squareWidth;
 var squareDiagonal;
+var currentX,
+    currentY;
 
 function addSquareListener() {
     $("#svgDrawing").off();
@@ -15,7 +17,7 @@ function onSquareStart(e) {
     $(square).attr("y", coords.y);
     $(square).attr("width", 0);
     $(square).attr("height", 0);
-    $(square).attr("stroke", color.first);
+    $(square).attr("stroke", border.color);
     $(square).attr("stroke-width", border.width);
     $(square).attr("fill", color.second);
 
@@ -31,19 +33,20 @@ function updateSquareSize(e) {
     var svgCoords = $("#svgDrawing").offset();
 
     var square = e.data.rect;
-    var currentX = e.clientX - svgCoords.left;
-    var currentY = e.clientY - svgCoords.top;
+    currentX = e.clientX - svgCoords.left;
+    currentY = e.clientY - svgCoords.top;
 
     squareWidth = Math.abs(currentX - coords.x);
 
     if (currentX < coords.x && currentY < coords.y) {
-        squareWidth -= 2 * squareWidth;
+        $(square).attr("x", currentX);
+        $(square).attr("y", currentY);
     }
     else if (currentX < coords.x && currentY >= coords.y) {
-        squareWidth -= 2 * squareWidth;
+        $(square).attr("x", currentX);
     }
     else if (currentX >= coords.x && currentY < coords.y) {
-
+        $(square).attr("y", currentY);
     }
 
     $(square).attr("width", squareWidth);
@@ -59,7 +62,18 @@ function onSquareEnd() {
     $("#svgDrawing").html("");
 
     ctx.beginPath();
-    ctx.rect(coords.x, coords.y, squareWidth, squareWidth);
+    if (currentX < coords.x && currentY < coords.y) {
+        ctx.rect(currentX, currentY, squareWidth, squareWidth);
+    }
+    else if (currentX < coords.x && currentY >= coords.y) {
+        ctx.rect(currentX, coords.y, squareWidth, squareWidth);
+    }
+    else if (currentX >= coords.x && currentY < coords.y) {
+        ctx.rect(coords.x, currentY, squareWidth, squareWidth);
+    }
+    else {
+        ctx.rect(coords.x, coords.y, squareWidth, squareWidth);
+    }
     ctx.strokeStyle = border.color;
     ctx.stroke();
 
