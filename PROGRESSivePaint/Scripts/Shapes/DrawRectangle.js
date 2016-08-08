@@ -15,10 +15,9 @@ function onRectangleStart(e) {
     $(rect).attr("y", coords.y);
     $(rect).attr("width", 0);
     $(rect).attr("height", 0);
-    /*    $(rect).attr("stroke", border.color);
-        $(rect).attr("stroke-width", border.width);
-        $(rect).attr("fill", color.second);
-        */
+    $(rect).attr("stroke", color.first);
+    $(rect).attr("fill", color.second);
+    $(rect).attr("stroke-width", border.width);
 
     $("#svgDrawing").on("mousemove", { rect: rect }, function (e) {
         updateRectangleSize(e);
@@ -30,7 +29,7 @@ function onRectangleStart(e) {
 function updateRectangleSize(e) {
     var svgCoords = $("#svgDrawing").offset();
 
-    var rectangle = e.data.rect;
+    var rect = e.data.rect;
     var currentX = e.clientX - svgCoords.left;
     var currentY = e.clientY - svgCoords.top;
 
