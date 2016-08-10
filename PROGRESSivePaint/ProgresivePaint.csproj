@@ -62,6 +62,7 @@
     <Content Include="Scripts\brush.js" />
     <Content Include="Scripts\color.js" />
     <Content Include="Scripts\Drawing.js" />
+    <Content Include="Scripts\Load.js" />
     <Content Include="Scripts\MainScript.js" />
     <Content Include="Scripts\Save.js" />
     <Content Include="Scripts\Shapes\DrawCircle.js" />

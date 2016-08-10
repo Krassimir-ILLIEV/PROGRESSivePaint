@@ -23,6 +23,14 @@ body,
     left: 50px;
 }
 
+#sizeBrush {
+    width: 300;
+    height: 100;
+    padding: 40px 10px 50px;
+    box-sizing: border-box;
+    background-color: #f4f7f8;
+}
+
 .button {
     display: inline-block;
     padding: 8px 13px;
@@ -32,22 +40,22 @@ body,
     border-radius: 2px;
     background-color: #f4f7f8;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.2);
-    cursor: default;
-    width:45px;
+    cursor: pointer;
+    width: 45px;
 }
 
-.button:hover {
-    border-color: #ECEFF1;
-    color: #455A64;
-    background-color: #ECEFF1;
-}
+    .button:hover {
+        border-color: #ECEFF1;
+        color: #455A64;
+        background-color: #ECEFF1;
+    }
 
-.button:active {
-    border-color: #CFD8DC;
-    color: #455A64;
-    background-color: #CFD8DC;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.16),0 6px 6px rgba(0,0,0,0.2);
-}
+    .button:active {
+        border-color: #CFD8DC;
+        color: #455A64;
+        background-color: #CFD8DC;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.16),0 6px 6px rgba(0,0,0,0.2);
+    }
 
 #playgroundWraper {
     height: 100%;
@@ -70,59 +78,63 @@ body,
     height: 100%;
 }
 
-#colorToolbar{
+#elementToLoad {
+    display: none;
+}
+
+#colorToolbar {
     position: absolute;
     top: 50px;
 }
 
-.colorbox{
+.colorbox {
     margin: 1px;
     border: 1px solid black;
-    width:20px;
-    height:20px;
-    float: left;  
+    width: 20px;
+    height: 20px;
+    float: left;
 }
 
-#black{
-    background:black; 
+#black {
+    background: black;
 }
 
-#white{
-    background:white; 
+#white {
+    background: white;
 }
 
-#grey{
-    background: grey; 
+#grey {
+    background: grey;
 }
 
-#darkRed{
-    background:darkred; 
+#darkRed {
+    background: darkred;
 }
 
-#red{
-    background:red; 
+#red {
+    background: red;
 }
 
-#orange{
-    background: orange; 
+#orange {
+    background: orange;
 }
 
-#yellow{
-    background:yellow; 
+#yellow {
+    background: yellow;
 }
 
-#green{
-    background:green;  
+#green {
+    background: green;
 }
 
-#turquoise{
-    background:turquoise;
+#turquoise {
+    background: turquoise;
 }
 
-#blue{
-    background: blue;  
+#blue {
+    background: blue;
 }
 
-#purple{
-    background: purple;  
+#purple {
+    background: purple;
 }

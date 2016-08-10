@@ -13,6 +13,7 @@
     <script src="scripts/shapes/drawline.js"></script>
     <script src="scripts/Brush.js"></script>
     <script src="scripts/Save.js"></script>
+    <script src="scripts/Load.js"></script>
     <script src="scripts/color.js"></script>
 
     <script src="scripts/Animation.js"></script>
@@ -24,6 +25,7 @@
 
 <body>
     <div id="paint">
+        <input type="file" id="elementToLoad" />
         <div id="toolbar">
             <span id="circle" class="button">Circle</span>
             <span id="rect" class="button">Rectangle</span>
@@ -31,7 +33,10 @@
             <span id="ellipse" class="button">Ellipse</span>
             <span id="line" class="button">Line</span>
             <span id="brush" class="button">Brush</span>
+            <span id="color" class="button">Color</span>
             <span id="save" class="button">Save</span>
+            <span id="load" class="button">Load</span>
+
         </div>
         <div id="colorToolbar">
             <div id="black" class="colorbox"></div>
@@ -51,5 +56,11 @@
             <canvas id="playground"></canvas>
         </div>
     </div>
+
+
+    <div id="sizeBrush">
+        <input type="range" id="sBrush" min="0" max="10">
+    </div>
+    <canvas id="picker" width=150 height=150 />
 </body>
 </html>
