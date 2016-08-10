@@ -36,7 +36,7 @@ function createPalette() {
         var s = f[i].split(",");
         for (var j = 0; j < s.length; j += 1) {
             ctx.fillStyle = s[j]; //"rgb("+r+","+g+","+b+")";
-            ctx.fillRect(i * delta, j * delta, delta, delta);
+            ctx.fillRect(i * delta, j * delta, delta-2, delta-2);
         }
     }
 
