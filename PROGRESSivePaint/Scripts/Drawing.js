@@ -8,7 +8,7 @@
         first: "#000",
         second: "transparent"
     }
-    var border = {
+    var brush = {
         color: color.first,
         width: "1",
         style: "solid"

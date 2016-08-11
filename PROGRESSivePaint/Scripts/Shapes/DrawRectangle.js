@@ -17,9 +17,9 @@ function onRectangleStart(e) {
     $(rect).attr("y", coords.y);
     $(rect).attr("width", 0);
     $(rect).attr("height", 0);
-    $(rect).attr("stroke", border.color);
+    $(rect).attr("stroke", brush.color);
     $(rect).attr("fill", color.second);
-    $(rect).attr("stroke-width", border.width);
+    $(rect).attr("stroke-width", brush.width);
 
     $("#svgDrawing").on("mousemove", { rect: rect }, function (e) {
         updateRectangleSize(e);
@@ -80,7 +80,8 @@ function onRectangleEnd() {
     else {
         ctx.rect(coords.x, coords.y, rectWidth, rectHeight);
     }
-    ctx.strokeStyle = border.color;
+    ctx.strokeStyle = brush.color;
+    ctx.lineWidth = brush.width;
     ctx.stroke();
 
     rectWidth = 0;

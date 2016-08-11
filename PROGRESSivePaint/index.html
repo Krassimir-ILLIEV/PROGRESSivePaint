@@ -11,10 +11,12 @@
     <script src="scripts/shapes/drawcircle.js"></script>
     <script src="scripts/shapes/DrawEllipse.js"></script>
     <script src="scripts/shapes/drawline.js"></script>
+    <script src="scripts/color.js"></script>
     <script src="scripts/Brush.js"></script>
+    <script src="scripts/WobblyLetterAnimation.js"></script>
     <script src="scripts/Save.js"></script>
     <script src="scripts/Load.js"></script>
-    <script src="scripts/color.js"></script>
+
 
     <script src="scripts/Animation.js"></script>
 
@@ -34,8 +36,10 @@
             <span id="line" class="button">Line</span>
             <span id="brush" class="button">Brush</span>
             <span id="color" class="button">Color</span>
+            <span id="wobblyText" class="button">Wobble</span>
             <span id="save" class="button">Save</span>
             <span id="load" class="button">Load</span>
+            <input id="#inputTextForWobble" value="1"/>
 
         </div>
         <div id="colorToolbar">
@@ -59,7 +63,12 @@
 
 
     <div id="sizeBrush">
-        <input type="range" id="sBrush" min="0" max="10">
+        <label for="brush">Brush Size:</label>
+        <input type="range" id="brushSizeSlider" min="1" max="100" value="3">
+        <br />
+        <center>
+            <img id="blackDot" src="Images/blackDot.png" />
+        </center>
     </div>
     <canvas id="picker" width=150 height=150 />
 </body>

@@ -1,6 +1,6 @@
 
 function changeColor() {
-    border.color = $(this).attr('id');
+    brush.color = $(this).attr('id');
 }
 
 function addColorListeners() {

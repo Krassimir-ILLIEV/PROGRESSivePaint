@@ -72,7 +72,7 @@ function setPalette() {
         // convert RGB to HEX
         var hex = rgbToHex(R, G, B);
         // making the color the value of the input
-        border.color = "rgb(" + rgb+")";
+        brush.color = "rgb(" + rgb+")";
         //$('#rgb input').val(rgb);
         //$('#hex input').val('#' + hex);
     });
@@ -99,25 +99,4 @@ function setPalette() {
 
 
 
-function setBrush() {
-    $('#sizeBrush').css({ position: "absolute", zIndex: 10, cursor: 'pointer' }).hide();
-    $('#sizeBrush').hover(function () {
-        $('#sizeBrush').show();
-    },
-    function () {
-        $('#sizeBrush').hide();
-    });
-
-    $('#brush').hover(function () {
-        $('#sizeBrush').show();
-        $('#sizeBrush').offset({
-            top: $('#brush').offset().top + 30,
-            left: $('#brush').offset().left
-        });
-    },
-    function () {
-        $('#sizeBrush').hide();
-    });
-
-}
 

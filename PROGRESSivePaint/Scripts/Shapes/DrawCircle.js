@@ -14,8 +14,8 @@ function onCircleStart(e) {
     $(circle).attr("cx", coords.x);
     $(circle).attr("cy", coords.y);
     $(circle).attr("r", 0);
-    $(circle).attr("stroke", border.color);
-    $(circle).attr("stroke-width", border.width);
+    $(circle).attr("stroke", brush.color);
+    $(circle).attr("stroke-width", brush.width);
     $(circle).attr("fill", color.second);
 
     $("#svgDrawing").on("mouseup", onCircleEnd);
@@ -45,7 +45,8 @@ function onCircleEnd() {
 
     ctx.beginPath();
     ctx.arc(coords.x, coords.y, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = border.color;
+    ctx.strokeStyle = brush.color;
+    ctx.lineWidth = brush.width;
     ctx.stroke();
 
     radius = 0;

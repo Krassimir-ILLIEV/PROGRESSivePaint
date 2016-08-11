@@ -57,6 +57,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Batman.png" />
+    <Content Include="Images\blackDot.png" />
+    <Content Include="Images\Brush.png" />
+    <Content Include="Images\Crop.png" />
+    <Content Include="Images\Cut.png" />
+    <Content Include="Images\Download.png" />
+    <Content Include="Images\Eraser.png" />
+    <Content Include="Images\NewSheet.png" />
+    <Content Include="Images\Pencil.png" />
+    <Content Include="Images\Pin.png" />
+    <Content Include="Images\Reply.png" />
+    <Content Include="Images\Tooll.png" />
+    <Content Include="Images\Tools.png" />
+    <Content Include="Images\Undo.png" />
+    <Content Include="Images\ZoomIn.png" />
+    <Content Include="Images\ZoomOut.png" />
     <Content Include="index.html" />
     <Content Include="Scripts\Animation.js" />
     <Content Include="Scripts\brush.js" />
@@ -70,6 +86,7 @@
     <Content Include="Scripts\Shapes\DrawLine.js" />
     <Content Include="Scripts\Shapes\DrawRectangle.js" />
     <Content Include="Scripts\Shapes\DrawSquare.js" />
+    <Content Include="Scripts\WobblyLetterAnimation.js" />
     <Content Include="styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>

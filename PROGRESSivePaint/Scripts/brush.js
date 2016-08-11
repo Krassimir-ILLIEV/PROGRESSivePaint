@@ -2,8 +2,6 @@
 
 var enableDraw = false;
 started = false;
-var canvas,
-    context;
 
 function addBrushListener(e) {
     $("#svgDrawing").off();
@@ -26,7 +24,6 @@ function addBrushListener(e) {
 
 function onMouseMove(ev) {
 
-
     var c = document.getElementById("playground");
     var context = c.getContext("2d");
     var x, y;
@@ -42,7 +39,7 @@ function onMouseMove(ev) {
     x = ev.clientX - $(c).offset().left;
     y = ev.clientY - $(c).offset().top;
 
-
+    context.lineWidth = brush.width;
     if (enableDraw) {
         if (!started) {
             started = true;
@@ -52,8 +49,40 @@ function onMouseMove(ev) {
         }
         else {
             context.lineTo(x, y);
-            context.strokeStyle = border.color;
+            context.strokeStyle = brush.color;
             context.stroke();
         }
     }
 }
+
+
+
+function setBrush() {
+    $('#sizeBrush').css({ position: "absolute", zIndex: 10, cursor: 'pointer' }).hide();
+    $('#sizeBrush').hover(function () {
+        $('#sizeBrush').show();
+    },
+    function () {
+        $('#sizeBrush').hide();
+    });
+
+    $('#brush').hover(function () {
+        $('#sizeBrush').show();
+        $('#sizeBrush').offset({
+            top: $('#brush').offset().top + 30,
+            left: $('#brush').offset().left
+        });
+    },
+    function () {
+        $('#sizeBrush').hide();
+    });
+    brush.width = $('#brushSizeSlider').val();
+    $('#brushSizeSlider').change(function (e) {      
+        brush.width = $(this).val();
+        $('#blackDot').width(brush.width);
+        
+
+	});
+
+}
+

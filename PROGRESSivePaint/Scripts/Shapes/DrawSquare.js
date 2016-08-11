@@ -17,8 +17,8 @@ function onSquareStart(e) {
     $(square).attr("y", coords.y);
     $(square).attr("width", 0);
     $(square).attr("height", 0);
-    $(square).attr("stroke", border.color);
-    $(square).attr("stroke-width", border.width);
+    $(square).attr("stroke", brush.color);
+    $(square).attr("stroke-width", brush.width);
     $(square).attr("fill", color.second);
 
 
@@ -74,7 +74,8 @@ function onSquareEnd() {
     else {
         ctx.rect(coords.x, coords.y, squareWidth, squareWidth);
     }
-    ctx.strokeStyle = border.color;
+    ctx.strokeStyle = brush.color;
+    ctx.lineWidth = brush.width;
     ctx.stroke();
 
     squareWidth = 0;

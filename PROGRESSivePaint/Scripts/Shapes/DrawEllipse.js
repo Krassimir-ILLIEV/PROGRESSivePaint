@@ -15,8 +15,8 @@ function onEllipseStart(e) {
     $(ellipse).attr("cy", coords.y);
     $(ellipse).attr("rx", 0);
     $(ellipse).attr("ry", 0);
-    $(ellipse).attr("stroke", border.color);
-    $(ellipse).attr("stroke-width", border.width);
+    $(ellipse).attr("stroke", brush.color);
+    $(ellipse).attr("stroke-width", brush.width);
     $(ellipse).attr("fill", color.second);
     
     $("#svgDrawing").on("mouseup", onEllipseEnd);
@@ -48,7 +48,8 @@ function onEllipseEnd() {
 
     ctx.beginPath();
     ctx.ellipse(coords.x, coords.y, radiusX, radiusY, 2 * Math.PI, 0, 2 * Math.PI);
-    ctx.strokeStyle = border.color;
+    ctx.strokeStyle = brush.color;
+    ctx.lineWidth = brush.width;
     ctx.stroke();
 
     radiusX = 0;

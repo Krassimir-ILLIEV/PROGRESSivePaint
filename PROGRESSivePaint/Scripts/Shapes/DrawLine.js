@@ -1,7 +1,6 @@
 ﻿var xEnd,
     yEnd;
 
-
 function addLineListener() {
     $("#svgDrawing").off();
     $("#svgDrawing").on("mousedown", onLineStart);
@@ -16,8 +15,8 @@ function onLineStart(e) {
     $(line).attr("y1", coords.y);
     $(line).attr("x2", coords.x);
     $(line).attr("y2", coords.y);
-    $(line).attr("stroke", border.color);
-    $(line).attr("stroke-width", border.width);
+    $(line).attr("stroke", brush.color);
+    $(line).attr("stroke-width", brush.width);
 
     $("#svgDrawing").on("mouseup", onLineEnd);
     $("#svgDrawing").on("mousemove", { line: line }, function (e) {
@@ -50,7 +49,8 @@ function onLineEnd() {
     ctx.beginPath();
     ctx.moveTo(coords.x, coords.y);
     ctx.lineTo(xEnd, yEnd);
-    ctx.strokeStyle = border.color;
+    ctx.strokeStyle = brush.color;
+    ctx.lineWidth = brush.width;
     ctx.stroke();
     
 

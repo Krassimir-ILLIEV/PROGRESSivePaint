@@ -7,14 +7,14 @@ function saveOriginalPosition() {
     //alert("buttons---");
     var d = 300;
     $(".button").each(function (i) {
-        $(this).css("position","absolute");
+        $(this).css({ position: "absolute" });
         $(this).attr("orgX", $(this).position().left);
         $(this).attr("orgY", $(this).position().top);
         $(this).offset({ left: 500, top: 300 }).css("zIndex", 20);
         $(this).delay(d).animate({
-            left: $(this).attr("orgX")+i*80,
+            left: $(this).attr("orgX")+i*90,
             top: $(this).attr("orgY")
-        }, 2000);
+        }, 2000); //2000);-----------------------------------------------------
         d = d + 300;
     });
     $(".colorbox").fadeOut(0);
@@ -28,7 +28,7 @@ function fadingColorBoxes() {
     var d = 0;
     $(".colorbox").each(function () {
         var $self = $(this);
-        $self.delay(d).fadeIn(500);
+        $self.delay(d).fadeIn(500); //500); ------------------------------------
         d = d + 100;
     });
 
@@ -43,22 +43,17 @@ function initTextAnimation(){   //using vanilla js and canvas
     context = canvas.getContext("2d");
     //initStageObject();
     //setInterval(updateStage, frameInterval);
-    requestAnimationFrame(drawSt);
+    requestAnimationFrame(drawSt);context //-------------------------------------------------------
 
 }
 
 function updateStage() {
     t += frameInterval;
     clearCanvas();
-    //updateStageObject();
     drawStageObjects();
 }
 function clearCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-function initStageObjects() {
-    
 }
 
 function drawStageObjects() {
