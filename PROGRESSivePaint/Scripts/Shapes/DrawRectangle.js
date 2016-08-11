@@ -39,10 +39,6 @@ function updateRectangleSize(e) {
     rectHeight = Math.abs(currentY - coords.y);
 
     if (currentX < coords.x && currentY < coords.y) {
-        /*
-        rectWidth = -rectWidth;
-        rectHeight = -rectHeight;
-*/
         $(rect).attr("x", currentX);
         $(rect).attr("y", currentY);
         

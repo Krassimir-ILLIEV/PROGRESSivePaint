@@ -29,6 +29,7 @@ function addButtonsEvents() {
     $("#load").on("click", addLoadListener);
     $("#rect").on("click", addRectangleListener);
     $("#square").on("click", addSquareListener);
+    $("#star").on("click", addStarListener);
 
 
 }
