@@ -17,11 +17,13 @@
     <script src="scripts/Save.js"></script>
     <script src="scripts/Load.js"></script>
 
+    <script src="Scripts/Clear.js"></script>
 
     <script src="scripts/Animation.js"></script>
 
     <script src="Scripts/Shapes/DrawRectangle.js"></script>
     <script src="Scripts/Shapes/DrawSquare.js"></script>
+    <script src="Scripts/Shapes/DrawStar.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
@@ -35,11 +37,17 @@
             <span id="ellipse" class="button">Ellipse</span>
             <span id="line" class="button">Line</span>
             <span id="brush" class="button">Brush</span>
+            <span id="star" class="button">Star</span>
             <span id="color" class="button">Color</span>
+
             <span id="wobblyText" class="button">Wobble</span>
             <span id="save" class="button">Save</span>
             <span id="load" class="button">Load</span>
-            <input id="#inputTextForWobble" value="1"/>
+          
+
+            <span id="clear" class="button">Clear</span>
+
+            
 
         </div>
         <div id="colorToolbar">
@@ -55,6 +63,7 @@
             <div id="blue" class="colorbox"></div>
             <div id="purple" class="colorbox"></div>
         </div>
+        <input id="#inputTextForWobble" value="1" />
         <div id="playgroundWraper">
             <svg id="svgDrawing"></svg>
             <canvas id="playground"></canvas>

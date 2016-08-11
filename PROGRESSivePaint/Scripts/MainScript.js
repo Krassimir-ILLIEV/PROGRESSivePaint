@@ -28,6 +28,9 @@ function addButtonsEvents() {
     $("#save").on("click", addSaveListener);
     $("#load").on("click", addLoadListener);
 
+    $("#star").on("click", addStarListener);
+    $("#clear").on("click", clearScreen);
+
 
     $('#elementToLoad').change(selectFile);
 
