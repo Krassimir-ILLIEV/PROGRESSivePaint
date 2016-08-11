@@ -30,6 +30,7 @@ function addButtonsEvents() {
     $("#rect").on("click", addRectangleListener);
     $("#square").on("click", addSquareListener);
     $("#star").on("click", addStarListener);
+    $("#clear").on("click", clearScreen);
 
 
 }

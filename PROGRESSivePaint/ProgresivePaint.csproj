@@ -60,6 +60,7 @@
     <Content Include="index.html" />
     <Content Include="Scripts\Animation.js" />
     <Content Include="Scripts\brush.js" />
+    <Content Include="Scripts\Clear.js" />
     <Content Include="Scripts\color.js" />
     <Content Include="Scripts\Drawing.js" />
     <Content Include="Scripts\Load.js" />
@@ -70,6 +71,7 @@
     <Content Include="Scripts\Shapes\DrawLine.js" />
     <Content Include="Scripts\Shapes\DrawRectangle.js" />
     <Content Include="Scripts\Shapes\DrawSquare.js" />
+    <Content Include="Scripts\Shapes\DrawStar.js" />
     <Content Include="styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
