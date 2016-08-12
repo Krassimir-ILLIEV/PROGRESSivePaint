@@ -14,11 +14,9 @@ function selectFile() {
         // change the composite mode to destination-atop
         // any new drawing will not overwrite any existing pixels
         context.globalCompositeOperation = "source-over";
-
     }
-    //alert($('#elementToLoad').prop("files")[0].name);
-    //alert(document.getElementById('elementToLoad').files[0]);
-    //    img.src = URL.createObjectURL(document.getElementById('elementToLoad').files[0]);
+    
+    //img.src = URL.createObjectURL(document.getElementById('elementToLoad').files[0]);
     img.src = URL.createObjectURL($('#elementToLoad').prop("files")[0]);
 }
 function createPalette() {
@@ -58,21 +56,26 @@ function setPalette() {
     createPalette();
 
     $('#picker').click(function (event) {
+
         // getting user coordinates
         var canvas = document.getElementById('picker');
         var ctx = canvas.getContext('2d');
         var x = event.pageX - this.offsetLeft;
         var y = event.pageY - this.offsetTop;
+
         // getting image data and RGB values
         var img_data = ctx.getImageData(x, y, 1, 1).data;
         var R = img_data[0];
         var G = img_data[1];
         var B = img_data[2];
         var rgb = R + ',' + G + ',' + B;
+
         // convert RGB to HEX
         var hex = rgbToHex(R, G, B);
+
         // making the color the value of the input
-        brush.color = "rgb(" + rgb+")";
+        brush.color = "rgb(" + rgb + ")";
+
         //$('#rgb input').val(rgb);
         //$('#hex input').val('#' + hex);
     });

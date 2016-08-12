@@ -1,5 +1,3 @@
-
-
 var enableDraw = false;
 started = false;
 
@@ -8,10 +6,6 @@ function addBrushListener(e) {
     var brush = addSvgTag("brush");
 
     $("#svgDrawing").on("mousemove", onMouseMove);
-
-    /*$("#svgDrawing").on('click', function (e) {
-        onClick(e);
-    });*/
 
     $("#svgDrawing").on('mousedown', function (e) {
         enableDraw = true;
@@ -24,20 +18,12 @@ function addBrushListener(e) {
 
 function onMouseMove(ev) {
 
-    var c = document.getElementById("playground");
-    var context = c.getContext("2d");
+    var canvas = document.getElementById("playground");
+    var context = canvas.getContext("2d");
     var x, y;
 
-    /*if (ev.layerX >= 0) {
-        x = ev.layerX - 50;
-        y = ev.layerY - 5;
-    }
-    else if (ev.offsetX >= 0) {
-        x = ev.offsetX - 50;
-        y = ev.offsetY - 5;
-    }*/
-    x = ev.clientX - $(c).offset().left;
-    y = ev.clientY - $(c).offset().top;
+    x = ev.clientX - $(canvas).offset().left;
+    y = ev.clientY - $(canvas).offset().top;
 
     context.lineWidth = brush.width;
     if (enableDraw) {
@@ -54,8 +40,6 @@ function onMouseMove(ev) {
         }
     }
 }
-
-
 
 function setBrush() {
     $('#sizeBrush').css({ position: "absolute", zIndex: 10, cursor: 'pointer' }).hide();
@@ -76,13 +60,13 @@ function setBrush() {
     function () {
         $('#sizeBrush').hide();
     });
+
     brush.width = $('#brushSizeSlider').val();
-    $('#brushSizeSlider').change(function (e) {      
+
+    $('#brushSizeSlider').change(function (e) {
         brush.width = $(this).val();
         $('#blackDot').width(brush.width);
-        
-
-	});
+    });
 
 }
 

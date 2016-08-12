@@ -11,10 +11,10 @@ function expandPalyground() {
     canvasContext = $("#playground")[0].getContext("2d");
     canvasContext.canvas.width = $("#svgDrawing").width();
     canvasContext.canvas.height = $("#svgDrawing").height();
-    //$(canvasContext.canvas).animate({ width: $("#svgDrawing").width(), height: $("#svgDrawing").height() }, 1000, initTextAnimation);
     initTextAnimation();
     setPalette();
     setBrush();
+    setupinputBoxContent();
 }
 
 function addButtonsEvents() {
@@ -31,7 +31,5 @@ function addButtonsEvents() {
     $("#star").on("click", addStarListener);
     $("#clear").on("click", clearScreen);
 
-
     $('#elementToLoad').change(selectFile);
-
 }

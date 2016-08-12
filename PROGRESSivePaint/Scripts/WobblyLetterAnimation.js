@@ -6,42 +6,65 @@ var ballRadius = 10;
 // physics globals
 var collisionDamper = 0.3;
 var floorFriction = 0.0005 * frameInterval;
-var restoreForce =0.002 * frameInterval;
+var restoreForce = 0.002 * frameInterval;
+
 //correction
 floorFriction = floorFriction * 20;
 restoreForce = restoreForce * 20;
 
 var ctx = null,
-    $inp = $("#inputTextForWobble"),
-    w,h,
-    balls = [],                                     // global ball array
+    $inp = null,
+    w, h,
+    balls = [],
+	idToClear,
 	previousTxt="";
 //generate($inp.val())                                 // init default text
-$inp.keyup(function () { generate($(this).val()) });    // get some text to demo
 
                // fill must be a solid color
+function setupinputBoxContent() {
+    $('#inputBoxContent').css({ position: "absolute", zIndex: 10, cursor: 'pointer' }).hide();
+    $('#wobblyText').on("click",function () {
+        $('#inputBoxContent').show();
+        $('#inputBoxContent').offset({
+            top: $('#wobblyText').offset().top + 30,
+            left: $('#wobblyText').offset().left
+        });
+    });
+
+    $('#Exit').on("click",function () {
+        clearInterval(idToClear);
+		$inp.off();   
+	    $inp.val("");
+	    previousTxt="";
+        ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height); //clearCanvas();
+        $('#inputBoxContent').hide();
+	});
+	
+	$inp = $("#inputTextForWobble");
+
+}
 
 function addWobblyTextListener() {
-    return;
+    clearInterval(idToClear);  //previous session;
+	$inp.keyup(function () { generate($(this).val()) });   
     ctx = document.getElementById('playground').getContext('2d');
     ctx.fillStyle = "rgb(0, 154, 253)";
     w = ctx.canvas.width;
     h = ctx.canvas.height;
-    initStageObjects();
-    setInterval(updateStage, frameInterval);
-    //requestAnimationFrame(animate);
-}
-
-function initStageObjects() {
+    ctx.clearRect(0, 0, w, h);                       
     balls = new Array();
-    generate($inp.val());
+    //generate($inp.val());
+	$inp.val("");
+	previousTxt="";
+	idToClear=setInterval(updateStage1, frameInterval);
+    //requestAnimationFrame(updateStage);
 }
 
-function updateStage() {
+function updateStage1() {
     t += frameInterval;
-    clearCanvas();
-    updateStageObjects();
-    drawStageObjects();
+    ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height); //clearCanvas();
+    updateStageObjects1();
+    drawStageObjects1();
 }
 
 
@@ -50,7 +73,7 @@ function generate(txt) {
         data32;                                       // we'll use uint32 for speed
     var currX=0,
         currH=20;
-    var colorArr=["red", "green", "blue", "yellow", "black"],
+    var colorArr=["red", "green", "blue", "purple", "black", "cyan", "brown", "pink"],
     colorLength=colorArr.length;
 
     if (txt.length <= previousTxt.length){				//backspace
@@ -113,20 +136,18 @@ function deleteObjects(maxNum) {
 }
 
 
-function drawStageObjects() {
+function drawStageObjects1() {
     for(var i = 0, ball; ball = balls[i]; i++) {
         var dx=Math.random()*ball.radius;
         dy=Math.random()*ball.radius;
-        //ctx.beginPath();
-        //ctx.moveTo(ball.x + ball.radius + dx, ball.y + dy);
+        
         ctx.fillStyle=ball.color;
-        ctx.fillText(ball.letter, ball.x + dx, ball.y + dy); 
-        //ctx.closePath();
+        ctx.fillText(ball.letter, ball.x + dx, ball.y + dy);   
     }
     ctx.fill();
 }
 
-function updateStageObjects() {
+function updateStageObjects1() {
  
     for (var n=0; n<balls.length; n++) {
  
@@ -190,9 +211,5 @@ function updateStageObjects() {
             balls[n].vx*=(1-collisionDamper);
         }	
     }
-}
-
-function clearCanvas() {
-    ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height);
 }
  

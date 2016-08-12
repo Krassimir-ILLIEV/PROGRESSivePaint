@@ -1,7 +1,9 @@
 ﻿var squareWidth;
 var squareDiagonal;
 var currentX,
-    currentY;
+    currentY,
+    topLeftX,
+    topLeftY;
 
 function addSquareListener() {
     $("#svgDrawing").off();
@@ -36,18 +38,29 @@ function updateSquareSize(e) {
     currentX = e.clientX - svgCoords.left;
     currentY = e.clientY - svgCoords.top;
 
-    squareWidth = Math.abs(currentX - coords.x);
+    var deltaY = Math.abs(currentY - coords.y);
+    var deltaX = Math.abs(currentX - coords.x);
+    squareWidth = Math.max(deltaY, deltaX);
+
 
     if (currentX < coords.x && currentY < coords.y) {
-        $(square).attr("x", currentX);
-        $(square).attr("y", currentY);
+        topLeftX = coords.x - squareWidth;
+        topLeftY = coords.y - squareWidth;
     }
     else if (currentX < coords.x && currentY >= coords.y) {
-        $(square).attr("x", currentX);
+        topLeftX = coords.x - squareWidth;
+        topLeftY = coords.y;
     }
     else if (currentX >= coords.x && currentY < coords.y) {
-        $(square).attr("y", currentY);
+        topLeftX = coords.x;
+        topLeftY = coords.y - squareWidth;
     }
+    else {
+        topLeftX = coords.x;
+        topLeftY = coords.y;
+    }
+    $(square).attr("x", topLeftX);
+    $(square).attr("y", topLeftY);
 
     $(square).attr("width", squareWidth);
     $(square).attr("height", squareWidth);
@@ -62,18 +75,8 @@ function onSquareEnd() {
     $("#svgDrawing").html("");
 
     ctx.beginPath();
-    if (currentX < coords.x && currentY < coords.y) {
-        ctx.rect(currentX, currentY, squareWidth, squareWidth);
-    }
-    else if (currentX < coords.x && currentY >= coords.y) {
-        ctx.rect(currentX, coords.y, squareWidth, squareWidth);
-    }
-    else if (currentX >= coords.x && currentY < coords.y) {
-        ctx.rect(coords.x, currentY, squareWidth, squareWidth);
-    }
-    else {
-        ctx.rect(coords.x, coords.y, squareWidth, squareWidth);
-    }
+
+    ctx.rect(topLeftX,topLeftY,squareWidth,squareWidth);
     ctx.strokeStyle = brush.color;
     ctx.lineWidth = brush.width;
     ctx.stroke();

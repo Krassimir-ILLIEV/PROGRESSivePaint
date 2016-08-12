@@ -25,7 +25,6 @@ function onRectangleStart(e) {
         updateRectangleSize(e);
     });
     $("#svgDrawing").on("mouseup", onRectangleEnd);
-
 }
 
 function updateRectangleSize(e) {
@@ -37,19 +36,9 @@ function updateRectangleSize(e) {
 
     rectWidth = Math.abs(currentX - coords.x);
     rectHeight = Math.abs(currentY - coords.y);
-
-    if (currentX < coords.x && currentY < coords.y) {
-        $(rect).attr("x", currentX);
-        $(rect).attr("y", currentY);
         
-    }
-    else if (currentX < coords.x && currentY >= coords.y) {
-        $(rect).attr("x", currentX);
-    }
-    else if (currentX >= coords.x && currentY < coords.y) {
-        $(rect).attr("y", currentY);
-    }
-
+    $(rect).attr("x", Math.min(currentX, coords.x));
+    $(rect).attr("y", Math.min(currentY, coords.y));
     $(rect).attr("width", rectWidth);
     $(rect).attr("height", rectHeight);
 

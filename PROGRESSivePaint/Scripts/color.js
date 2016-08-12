@@ -1,4 +1,3 @@
-
 function changeColor() {
     brush.color = $(this).attr('id');
 }

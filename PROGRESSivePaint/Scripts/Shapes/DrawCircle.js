@@ -1,6 +1,5 @@
 ﻿var radius;
 
-
 function addCircleListener() {
     $("#svgDrawing").off();
     $("#svgDrawing").on("mousedown", onCircleStart);

@@ -28,6 +28,11 @@
 </head>
 
 <body>
+    <div id="inputBoxContent">
+	    <br/>
+        <input id="inputTextForWobble" value="" size="35"/>
+        <button type="button" id="Exit">Exit</button>
+    </div>
     <div id="paint">
         <input type="file" id="elementToLoad" />
         <div id="toolbar">
@@ -43,11 +48,11 @@
             <span id="wobblyText" class="button">Wobble</span>
             <span id="save" class="button">Save</span>
             <span id="load" class="button">Load</span>
-          
+
 
             <span id="clear" class="button">Clear</span>
 
-            
+
 
         </div>
         <div id="colorToolbar">
@@ -63,7 +68,6 @@
             <div id="blue" class="colorbox"></div>
             <div id="purple" class="colorbox"></div>
         </div>
-        <input id="#inputTextForWobble" value="1" />
         <div id="playgroundWraper">
             <svg id="svgDrawing"></svg>
             <canvas id="playground"></canvas>
@@ -80,5 +84,8 @@
         </center>
     </div>
     <canvas id="picker" width=150 height=150 />
+    <input id="#inputTextForWobble" value="1" />
+
+
 </body>
 </html>

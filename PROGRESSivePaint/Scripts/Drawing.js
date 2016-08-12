@@ -15,9 +15,6 @@
     };
 // #endregion
 
-
-
-
 function setStartCoords(e) {
     var svgCoords = $("#svgDrawing").offset();
     coords.x = e.clientX - svgCoords.left;
