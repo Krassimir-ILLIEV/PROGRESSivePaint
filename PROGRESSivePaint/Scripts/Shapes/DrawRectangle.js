@@ -36,9 +36,12 @@ function updateRectangleSize(e) {
 
     rectWidth = Math.abs(currentX - coords.x);
     rectHeight = Math.abs(currentY - coords.y);
+    currentX = Math.min(currentX, coords.x);
+    currentY = Math.min(currentY, coords.y);
         
-    $(rect).attr("x", Math.min(currentX, coords.x));
-    $(rect).attr("y", Math.min(currentY, coords.y));
+
+    $(rect).attr("x", currentX);
+    $(rect).attr("y", currentY);
     $(rect).attr("width", rectWidth);
     $(rect).attr("height", rectHeight);
 
@@ -52,7 +55,7 @@ function onRectangleEnd() {
     $("#svgDrawing").html("");
 
     ctx.beginPath();
-   
+   /*
     if (currentX < coords.x && currentY < coords.y) {
         ctx.rect(currentX, currentY, rectWidth, rectHeight);
     }
@@ -65,6 +68,8 @@ function onRectangleEnd() {
     else {
         ctx.rect(coords.x, coords.y, rectWidth, rectHeight);
     }
+    */
+    ctx.rect(currentX, currentY, rectWidth, rectHeight);
     ctx.strokeStyle = brush.color;
     ctx.lineWidth = brush.width;
     ctx.stroke();

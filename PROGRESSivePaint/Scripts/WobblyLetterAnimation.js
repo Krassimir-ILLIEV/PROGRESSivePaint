@@ -20,7 +20,7 @@ var ctx = null,
 	previousTxt="";
 //generate($inp.val())                                 // init default text
 
-               // fill must be a solid color
+// fill must be a solid color
 function setupinputBoxContent() {
     $('#inputBoxContent').css({ position: "absolute", zIndex: 10, cursor: 'pointer' }).hide();
     $('#wobblyText').on("click",function () {
@@ -94,9 +94,12 @@ function generate(txt) {
         var letter=txt.charAt(j);
         var currW=ctx.measureText(letter).width;
         currW=(currW|0)+1;
-        if (j==txt.length-1){							 //the last only
-            ctx.strokeText(letter, currX,currH);           // draw the text (default 10px) !!!down left
-            //alert(X+";"+letter+";"+currX);
+        if (j == txt.length - 1) {							 //the last only
+            ctx.clearRect(0, 0, w, h);                        // clear canvas so we can
+            ctx.strokeStyle = "#003300";
+            ctx.lineWidth = 1;
+            ctx.strokeText(letter, currX, currH);           // draw the text (default 10px) !!!down left
+            ctx.stroke();
 
             // get a Uint32 representation of the bitmap:
             data32 = new Uint32Array(ctx.getImageData(currX, 0,currW,currH*1.2).data.buffer);
@@ -137,6 +140,7 @@ function deleteObjects(maxNum) {
 
 
 function drawStageObjects1() {
+    ctx.beginPath();
     for(var i = 0, ball; ball = balls[i]; i++) {
         var dx=Math.random()*ball.radius;
         dy=Math.random()*ball.radius;
@@ -144,6 +148,7 @@ function drawStageObjects1() {
         ctx.fillStyle=ball.color;
         ctx.fillText(ball.letter, ball.x + dx, ball.y + dy);   
     }
+    ctx.closePath();
     ctx.fill();
 }
 
