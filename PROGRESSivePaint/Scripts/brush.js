@@ -62,6 +62,7 @@ function setBrush() {
     });
 
     brush.width = $('#brushSizeSlider').val();
+    $('#blackDot').width($('#brushSizeSlider').val());
 
     $('#brushSizeSlider').change(function (e) {
         brush.width = $(this).val();
